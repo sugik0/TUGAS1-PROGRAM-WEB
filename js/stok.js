@@ -2,21 +2,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const stokGrid = document.getElementById("stokBookGrid");
   const addStokForm = document.getElementById("addStokForm");
 
-  // --- 1. Fungsi untuk merender GRID KARTU (bukan tabel) ---
   function renderBookGrid() {
-    // Pastikan elemen ada sebelum melanjutkan
+    
     if (!stokGrid) return;
 
-    // Kosongkan isi grid terlebih dahulu
     stokGrid.innerHTML = "";
 
-    // Loop dataBahanAjar (dari data.js) dan buat kartu
     dataBahanAjar.forEach((item) => {
-      // Buat elemen 'article' untuk card
+    
       const card = document.createElement("article");
-      card.className = "book-card"; // Beri class
-
-      // Isi HTML untuk card
+      card.className = "book-card"; 
       card.innerHTML = `
         <img src="${item.cover}" alt="${item.namaBarang}" class="book-card-image">
         <div class="book-card-content">
@@ -34,12 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       `;
 
-      // Masukkan card ke dalam grid
       stokGrid.appendChild(card);
     });
   }
 
-  // --- 2. Event listener untuk form tambah stok ---
   if (addStokForm) {
     addStokForm.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -51,21 +44,17 @@ document.addEventListener("DOMContentLoaded", function () {
         jenisBarang: "BMP",
         edisi: document.getElementById("edisi").value,
         stok: parseInt(document.getElementById("stok").value, 10),
-        cover: "img/default.jpg", // Cover default untuk data baru
+        cover: "img/std_buku.jpg",
       };
 
-      // Tambahkan objek baru ke array dataBahanAjar
       dataBahanAjar.push(newStok);
 
-      // Render ulang GRID (bukan tabel lagi)
       renderBookGrid();
 
-      // Kosongkan form
       addStokForm.reset();
     });
   }
 
-  // --- 3. Panggil render GRID saat halaman pertama kali dimuat ---
   renderBookGrid();
 
   const stokModal = document.getElementById("addStokModal");
@@ -100,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (stokModal) stokModal.style.display = "none";
     });
   }
-  // Sembunyikan modal saat klik di luar area modal
+
   window.addEventListener("click", function (event) {
     if (event.target == stokModal) {
       stokModal.style.display = "none";

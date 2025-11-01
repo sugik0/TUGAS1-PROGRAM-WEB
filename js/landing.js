@@ -1,11 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Atur semua hal terkait popup login
+
   setupLoginModal();
-
-  // 2. Atur semua hal terkait validasi form
   setupLoginForm();
-
-  // 3. Atur link-link bantuan
   setupHelpLinks();
 
   function setupLoginModal() {
@@ -13,22 +9,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginBtn = document.getElementById("loginPopupBtn");
     const closeModalBtn = document.getElementById("closeLoginModal");
 
-    // Tampilkan modal saat tombol login di header diklik
     if (loginBtn) {
       loginBtn.onclick = function (e) {
-        e.preventDefault(); // Mencegah link '#' melompat ke atas
+        e.preventDefault();
         if (loginModal) loginModal.style.display = "block";
       };
     }
 
-    // Sembunyikan modal saat tombol close (X) diklik
     if (closeModalBtn) {
       closeModalBtn.onclick = function () {
         if (loginModal) loginModal.style.display = "none";
       };
     }
 
-    // Sembunyikan modal saat klik di luar area modal
     window.onclick = function (event) {
       if (event.target == loginModal) {
         loginModal.style.display = "none";
@@ -36,31 +29,26 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  /**
-   * Fungsi ini mengurus validasi form login saat disubmit.
-   */
   function setupLoginForm() {
     const loginForm = document.getElementById("loginForm");
 
-    if (!loginForm) return; // Keluar jika form tidak ada
+    if (!loginForm) return;
 
     loginForm.addEventListener("submit", function (event) {
-      event.preventDefault(); // Mencegah form reload halaman
+      event.preventDefault();
 
-      // Pastikan dataPengguna ada (dari data.js)
+
       if (typeof dataPengguna === "undefined" || !Array.isArray(dataPengguna)) {
         alert("Data pengguna belum dimuat. Pastikan data.js telah disertakan.");
         return;
       }
 
-      // Ambil nilai input
       const emailInput = document
         .getElementById("email")
         .value.trim()
         .toLowerCase();
       const passwordInput = document.getElementById("password").value;
 
-      // Cari pengguna
       const user = dataPengguna.find(
         (u) =>
           (u.email || "").toLowerCase() === emailInput &&
@@ -77,9 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /**
-   * Fungsi ini mengurus link "Lupa Password" dan "Daftar".
-   */
   function setupHelpLinks() {
     const lupaLink = document.getElementById("lupaPasswordLink");
     const daftarLink = document.getElementById("daftarLink");

@@ -3,12 +3,12 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Memastikan footer menempel di bawah */
+  min-height: 100vh; 
 }
 
 main {
-  flex: 1; /* Membuat main content mengisi ruang sisa */
-  padding-top: 80px; /* Memberi jarak agar tidak tertutup header */
+  flex: 1; 
+  padding-top: 80px;
 }
 
 .banner {
@@ -16,14 +16,14 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 63vh; /* Tinggi minimal area hero */
+  min-height: 63vh; 
   padding: 2.1rem;
   background-image: url("../img/banner-landing.png");
   background-size: cover;
   background-position: center;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 kolom, 50/50 */
-  align-items: center; /* Pusatkan konten secara vertikal */
+  grid-template-columns: 1fr 1fr; 
+  align-items: center; 
   gap: 2.5rem;
   position: relative;
   z-index: 0;
@@ -41,7 +41,6 @@ main {
   margin-bottom: 1.5rem;
 }
 
-/*FORMULIR MULTIFUNGSI*/
 .modal {
   display: none;
   position: fixed;
@@ -74,10 +73,10 @@ main {
   font-weight: bold;
   cursor: pointer;
 }
-/* Tombol MULTIFUNGSI */
+
 button {
   padding: 10px;
-  background-color: #ffc425; /* Kuning UT */
+  background-color: #ffc425; 
   color: #004a99;
   font-weight: bold;
   border: none;

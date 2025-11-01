@@ -15,74 +15,62 @@
 
 .stok-grid {
   display: grid;
-  /* Grid responsif:
-    - auto-fit: Isi kolom sebanyak mungkin
-    - minmax(220px, 1fr): Lebar minimum kartu 220px, 
-      lebar maksimum 1fr (bagi rata)
-  */
   grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-  gap: 1.5rem; /* Jarak antar kartu */
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 
 .book-card {
   background-color: #fdfdfd;
   border-radius: 8px;
-  overflow: hidden; /* Penting agar gambar tidak 'bocor' */
+  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  display: flex; /* Membantu menata konten di dalam */
-  flex-direction: column; /* Konten ditumpuk vertikal */
+  display: flex;
+  flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .book-card:hover {
-  transform: translateY(-5px); /* Efek mengangkat */
+  transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Gambar Sampul (Besar) */
 .book-card-image {
   width: 100%;
-  height: auto; /* Beri tinggi pasti agar semua sama */
-  object-fit: cover; /* Potong gambar agar pas (tidak gepeng) */
+  height: auto; 
+  object-fit: cover; 
 }
 
-/* Konten Teks di bawah gambar */
 .book-card-content {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Memastikan konten mengisi sisa kartu */
+  flex-grow: 1; 
 }
 
-/* Judul Buku */
 .book-card-title {
   font-weight: 700;
   font-size: 1rem;
   color: #004a99;
   margin: 0 0 0.5rem 0;
-
-  /* Trik CSS untuk membatasi judul jadi 2 baris */
   line-height: 1.4;
-  height: 2.8em; /* (1.4 * 2 baris) */
+  height: 2.8em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
 
-/* Info detail (Kode, Lokasi) */
 .book-card-details {
   font-size: 0.85rem;
   color: #555;
   margin-bottom: 0.75rem;
-  flex-grow: 1; /* Mendorong stok ke bagian bawah */
+  flex-grow: 1;
 }
 .book-card-details span {
-  display: block; /* Tiap detail di baris baru */
+  display: block;
 }
 
-/* Info Stok */
 .book-card-stock {
   font-weight: 700;
   font-size: 1.1rem;
@@ -91,47 +79,39 @@
 .book-card-stock span {
   font-weight: 700;
   font-size: 1.2rem;
-  color: #1a9c43; /* Warna hijau untuk angka stok */
+  color: #1a9c43;
 }
 
 #addStokForm h2 {
   margin-top: 0;
-  margin-bottom: 1.5rem; /* Jarak dari judul ke form */
+  margin-bottom: 1.5rem; 
   text-align: center;
-  color: #004a99; /* Warna Biru UT */
+  color: #004a99;
   font-size: 1.5rem;
-  border-bottom: 2px solid #f0f0f0; /* Garis pemisah */
+  border-bottom: 2px solid #f0f0f0; 
   padding-bottom: 1rem;
 }
 
-/* 2. Layout Grid Form */
-
-/* 4. Style Label */
 .form-group label {
   display: block;
   font-weight: 700;
-  color: #555; /* Warna lebih lembut */
+  color: #555;
 }
 
-/* 5. Style Input Form (Ambil dari style.css dan perbagus) */
 #addStokForm input {
   padding: 10px;
   border-radius: 5px;
   font-size: 1rem;
   width: 100%;
   box-sizing: border-box;
-
-  /* Tambahan Estetika */
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 6. EFEK :FOCUS (Sangat Penting untuk Estetika) */
 #addStokForm input:focus {
-  outline: none; /* Hapus glow default */
-  border-color: #004a99; /* Ganti warna border */
+  outline: none; 
+  border-color: #004a99;
   background-color: #fff;
-  /* Tambahkan shadow/glow yang lembut */
   box-shadow: 0 0 0 3px rgba(0, 74, 153, 0.1);
 }
